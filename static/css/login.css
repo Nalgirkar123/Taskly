@@ -1,0 +1,48 @@
+/* General Body Styling */
+body {
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input Fields */
+.rounded-input {
+  border-radius: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  transition: 0.3s ease-in-out;
+}
+
+.rounded-input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #6c63ff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #5848e2;
+}
+
+/* Left Panel Gradient Background */
+.left-panel {
+  background: linear-gradient(to top, #e65c00, #f9d423);
+  color: white;
+}
+
+/* Logo Enhancements */
+.left-panel img[alt="Taskly Logo"] {
+  width: 200px;
+  filter: drop-shadow(0 0 4px rgb(233, 233, 233));
+  margin-bottom: 20px;
+}
+
+/* Illustration Styling */
+.left-panel img[alt="Productivity illustration"] {
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

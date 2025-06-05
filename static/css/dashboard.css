@@ -1,0 +1,114 @@
+/* Dashboard Container */
+.dashboard-container {
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Welcome Message */
+  .welcome {
+    font-size: 2rem;
+    color: #4e54ec;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  /* Summary Cards */
+  .summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    flex: 1 1 200px;
+    background:linear-gradient(150deg,#fbd3e9,#bb377d);
+    color: #333;
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Buttons */
+  .dashboard-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-buttons .btn {
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg,#3498db, #2980b9);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .dashboard-buttons .btn:hover {
+    background: linear-gradient(135deg, #2980b9, #1c6ea4);
+    transform: translateY(-2px);
+  }
+  
+  /* Task Categories Overview */
+  .categories-overview {
+    margin-top: 2rem;
+  }
+  
+  .category-block {
+    background-color: #4e54ec;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+  
+  /* Progress Bar */
+  .progress-section {
+    margin-top: 2rem;
+  }
+  
+  .progress-bar-container {
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 20px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(135deg, #fc354c, #0abfbc);
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  /* Recent Activity */
+  .recent-activity {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f6f6f6;
+    border-left: 4px solid #ff73b3;
+    border-radius: 6px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .summary-cards {
+      flex-direction: column;
+    }
+  
+    .dashboard-buttons {
+      flex-direction: column;
+    }
+  }
+  

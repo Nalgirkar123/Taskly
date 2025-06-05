@@ -1,0 +1,79 @@
+/* Register Page Styles */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.left-panel {
+  background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+  color: #333;
+  text-align: center;
+}
+
+.logo-img {
+  width: 130px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+}
+
+h3 {
+  color: #5356ad;
+  font-weight: 600;
+}
+
+label {
+  color: #333;
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  font-size: 15px;
+}
+
+.form-control:focus {
+  border-color: #5356ad;
+  box-shadow: 0 0 0 0.2rem rgba(83, 86, 173, 0.25);
+}
+
+.btn {
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff5fa4 !important;
+}
+
+.alert {
+  border-radius: 8px;
+}
+
+a.link-primary {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.link-primary:hover {
+  text-decoration: underline;
+}
+
+/* Logo Enhancements */
+.left-panel img[alt="Taskly Logo"] {
+  width: 200px;
+  filter: drop-shadow(0 0 4px rgb(215, 215, 215));
+  margin-bottom: 20px;
+}
+
+/* Illustration Styling */
+.left-panel img[alt="Productivity illustration"] {
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+

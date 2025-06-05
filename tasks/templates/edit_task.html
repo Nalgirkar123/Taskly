@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/edit_task.css' %}">
+
+<div class="edit-page">
+    <!-- Left: Illustration & Quote -->
+    <div class="task-left">
+        <div class="quote-box">
+            <h3>🧠 Productivity Tip</h3>
+            <p>"The secret of your future is hidden in your daily routine."</p>
+        </div>
+    
+        <div class="tip-box">
+            <img src="{% static 'images/lightbulb.png' %}" alt="Tip Icon" class="tip-icon">
+            
+            <p>Edit tasks regularly to stay organized and meet deadlines!</p>
+        </div>
+    
+        <img src="{% static 'images/edit_task.jpg' %}" alt="Edit Illustration" class="edit-illustration">
+    </div>
+    
+
+    <!-- Right: Edit Task Form -->
+    <div class="edit-right">
+        <div class="edit-task-card">
+            <h2>✏️ Edit Task</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>📝 Title:</label>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label>🚩 Priority:</label>
+                    {{ form.priority }}
+                </div>
+                <div class="form-group">
+                    <label>📅 Due Date:</label>
+                    {{ form.due_date }}
+                </div>
+                <div class="form-group">
+                    <label>📝 Description:</label>
+                    {{ form.description }}
+                </div>
+                <div class="form-group">
+                    <label>📌 Status:</label>
+                    {{ form.status }}
+                </div>
+                <button type="submit" class="update-btn">💾 Update Task</button>
+            </form>
+            <a href="{% url 'task_list' %}" class="back-btn">🔙 Back to Task List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

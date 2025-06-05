@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Taskly.in{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+  
+  <!-- Welcome Message -->
+  <div class="welcome">👋 Welcome back, {{ user.first_name|default:user.username }}!</div>
+
+  <!-- Dashboard Buttons -->
+  <div class="dashboard-buttons">
+    <a href="{% url 'add_task' %}" class="btn">➕ Add Task</a>
+    <a href="{% url 'task_list' %}" class="btn">📋 View Tasks</a>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <div class="card">
+      <h3>Total Tasks</h3>
+      <p>{{ total_tasks }}</p>
+    </div>
+    <div class="card">
+      <h3>Completed</h3>
+      <p>{{ completed_tasks }}</p>
+    </div>
+    <div class="card">
+      <h3>Pending</h3>
+      <p>{{ pending_tasks }}</p>
+    </div>
+    <div class="card">
+      <h3>Overdue</h3>
+      <p>{{ overdue_tasks }}</p>
+    </div>
+  </div>
+
+  <!-- Progress Section -->
+  <div class="progress-section">
+    <h3>📈 Task Completion</h3>
+    <div class="progress-bar-container">
+      <div class="progress-bar" style="width: {{ progress_percentage }}%;"></div>
+    </div>
+  </div>
+
+  <!-- Upcoming Tasks -->
+  <div class="categories-overview">
+    <h3>📅 Upcoming Tasks</h3>
+    {% for task in upcoming_tasks %}
+      <div class="category-block">
+        <strong>{{ task.title }}</strong> - due on {{ task.due_date|date:"d M Y" }}
+      </div>
+    {% empty %}
+      <p>No upcoming tasks.</p>
+    {% endfor %}
+  </div>
+
+  
+  <!-- High Priority Tasks -->
+  <div class="categories-overview">
+    <h3>🔥 High Priority Tasks</h3>
+    {% for task in high_priority_tasks %}
+      <div class="category-block">
+        <strong>{{ task.title }}</strong> - Priority: {{ task.priority }}
+      </div>
+    {% empty %}
+      <p>No high-priority tasks.</p>
+    {% endfor %}
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="recent-activity">
+    <h3>🕒 Recent Activity</h3>
+    {% for activity in recent_activity %}
+      <p>{{ activity }}</p>
+    {% empty %}
+      <p>No recent activity to display.</p>
+    {% endfor %}
+  </div>
+
+  <!-- Calendar -->
+  <div class="categories-overview">
+    <h3>📆 Calendar</h3>
+    <p>(Calendar integration coming soon...)</p>
+  </div>
+
+</div>
+{% endblock %}

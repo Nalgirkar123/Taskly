@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+<link rel="stylesheet" href="{% static 'css/messages.css' %}">
+
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">
+                <p>{{ message }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+<div class="task-list-page">
+    <!-- Filters & Buttons -->
+    <div class="task-filters">
+        <button class="filter-button" id="all-tasks" onclick="filterTasks('')">All Tasks</button>
+        <button class="filter-button" id="pending-tasks" onclick="filterTasks('pending')">Pending Tasks</button>
+        <button class="filter-button" id="completed-tasks" onclick="filterTasks('complete')">Completed Tasks</button>
+    </div>
+    <div class="task-add-btn-container">
+      <a href="{% url 'add_task' %}" class="add-task-btn">➕ Add Task</a>
+    </div>
+
+    <!-- If no tasks are present -->
+    {% if tasks.count == 0 %}
+        <div class="empty-state">
+            <img src="{% static 'images/empty_tasks.jpg' %}" alt="No Tasks" class="empty-illustration">
+            <h2>No Tasks Yet! Add some tasks and stay productive.</h2>
+        </div>
+    {% else %}
+        <div class="task-layout">
+            <!-- Left Side: Illustration and Motivational Quote -->
+            <div class="task-left">
+                <div class="quote-box">
+                    <h3>💡 Stay Motivated</h3>
+                    <p>"Success is the sum of small efforts repeated day in and day out."</p>
+                </div>
+                <img src="{% static 'images/task_focus.jpg' %}" alt="Task Focus" class="task-illustration">
+            </div>
+
+            <!-- Right Side: Task Cards -->
+            <div class="task-right">
+                {% for task in tasks %}
+                    <div class="task-card">
+                        <div class="task-header">
+                            <div class="task-title">{{ task.title }}</div>
+                            <div class="task-status {% if task.status == 'complete' %}complete{% else %}pending{% endif %}">
+                                {{ task.status|capfirst }}
+                            </div>
+                        </div>
+
+                        <div class="task-priority">
+                            {% if task.priority == 'High' %}
+                                <div class="priority-tag high">High</div>
+                            {% elif task.priority == 'Medium' %}
+                                <div class="priority-tag medium">Medium</div>
+                            {% elif task.priority == 'Low' %}
+                                <div class="priority-tag low">Low</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="task-footer">
+                            <div class="due-date">Due: {{ task.due_date|date:"M d, Y" }}</div>
+                            <div class="action-buttons">
+                                <button class="action-btn edit-btn" onclick="window.location.href='{% url 'edit_task' task.pk %}'">Edit</button>
+                                <button class="action-btn delete-btn" onclick="window.location.href='{% url 'delete_task' task.pk %}'">Delete</button>
+                                {% if task.status == 'pending' %}
+                                    <button class="action-btn complete-btn" onclick="window.location.href='{% url 'update_task_status' task.pk %}?status=complete'">Mark Complete</button>
+                                {% else %}
+                                    <button class="action-btn revert-btn" onclick="window.location.href='{% url 'update_task_status' task.pk %}?status=pending'">Mark Incomplete</button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

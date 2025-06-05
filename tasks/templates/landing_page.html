@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Taskly</title>
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo-box">
+        <img src="{% static 'images/taskly-logo.png' %}" alt="Taskly Logo" class="logo" />
+        <p class="tagline">Get Things Done, the Taskly Way</p>
+      </div>
+      <nav class="nav-buttons">
+        <a href="#features" class="btn nav-btn">Features</a>
+        <a href="#about" class="btn nav-btn">About</a>
+        <a href="#contact" class="btn nav-btn">Contact</a>
+        <a href="{% url 'login' %}" class="btn login-btn">Login</a>
+        <a href="{% url 'register' %}" class="btn signup-btn">Sign Up</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="text">
+        <h1>Organize your life with <span class="highlight">Taskly</span></h1>
+        <p>Your simple and powerful To-Do list manager that helps you focus on what matters most.</p>
+        <a href="{% url 'register' %}" class="btn cta-btn">Get Started for Free</a>
+      </div>
+      <div class="image">
+        <img src="{% static 'images/landing-illustration.jpg' %}" alt="Productivity Illustration"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2>Why choose Taskly?</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <i class="fas fa-check-circle"></i>
+          <h3>Easy Task Creation</h3>
+          <p>Create, organize, and update your tasks quickly and easily.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-edit"></i>
+          <h3>Edit & Delete</h3>
+          <p>Modify or remove tasks with a single click—stay in control.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-chart-line"></i>
+          <h3>Track Progress</h3>
+          <p>Visualize your task completion and boost productivity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ About Section -->
+  <section class="about-section" id="about">
+    <div class="container text-center">
+      <h2>About Taskly</h2>
+      <p>Taskly is a lightweight yet powerful to-do list application built to help individuals and teams stay organized. Whether you're planning your week or managing a full project, Taskly gives you clarity and control over your workflow.</p>
+    </div>
+  </section>
+
+  <!-- ✅ Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container text-center">
+      <h2>Contact Us</h2>
+      <p>Have questions, feedback, or need support? Reach out to us anytime at <a href="mailto:support@taskly.com">support@taskly.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2>Start managing your tasks today</h2>
+      <p>Join thousands using Taskly to stay organized and stress-free.</p>
+      <a href="{% url 'register' %}" class="btn cta-btn">Create Free Account</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container text-center">
+      <p>&copy; 2025 Taskly. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

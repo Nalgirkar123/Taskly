@@ -1,0 +1,70 @@
+.delete-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.delete-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.delete-illustration {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.task-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #c0392b;
+    margin: 10px 0 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.confirm-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-delete:hover {
+    background-color: #c0392b;
+}
+
+.cancel-btn {
+    background-color: #7f8c8d;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #636e72;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
