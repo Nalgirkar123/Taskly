@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/add_task.css' %}">
+{% endblock %}
+
+{% block content %}
 
 {% if form.errors %}
     <div class="errors">

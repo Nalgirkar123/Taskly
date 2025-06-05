@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
 <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+{% endblock %}
 
+{% block content %}
+
+<!-- Messages (already handled in base.html, but if you want custom placement, uncomment below) -->
+{# 
 {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -14,7 +19,7 @@
         {% endfor %}
     </div>
 {% endif %}
-
+#}
 
 <div class="task-list-page">
     <!-- Filters & Buttons -->
@@ -23,8 +28,9 @@
         <button class="filter-button" id="pending-tasks" onclick="filterTasks('pending')">Pending Tasks</button>
         <button class="filter-button" id="completed-tasks" onclick="filterTasks('complete')">Completed Tasks</button>
     </div>
+
     <div class="task-add-btn-container">
-      <a href="{% url 'add_task' %}" class="add-task-btn">➕ Add Task</a>
+        <a href="{% url 'add_task' %}" class="add-task-btn">➕ Add Task</a>
     </div>
 
     <!-- If no tasks are present -->

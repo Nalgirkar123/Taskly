@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/edit_task.css' %}">
+{% endblock %}
+
+{% block content %}
 
 <div class="edit-page">
     <!-- Left: Illustration & Quote -->

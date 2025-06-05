@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/delete_task.css' %}">
+
+{% endblock %}
+
+{% block content %}
 
 <div class="delete-container">
     <div class="delete-card">
